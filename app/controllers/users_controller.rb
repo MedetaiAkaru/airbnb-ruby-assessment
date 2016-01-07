@@ -36,7 +36,7 @@ end
 #NOT DONE edit user profile
 get '/users/:id/edit' do
   @user = User.find(params[:id])
-  erb :"/users/editprofile"
+  erb :"/users/edit"
 end
 
 #NOT DONE edit user profile (db)
