@@ -26,5 +26,10 @@ Original comment:
   		</div>
       </div>
     </form>
+    <div class="row">
+      <form action="/comments/<%= @comment.id %>/delete" method="POST">
+        <button class="waves-effect waves-light btn">Delete Comment</button>
+      </form>
+    </div>
   </div>
 <% end %>

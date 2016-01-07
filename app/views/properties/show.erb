@@ -22,9 +22,7 @@ Property By: <a href="/users/<%= @property.user.id %>">  <%= @property.user.name
         <span class="card-title"><%= comment.commenttext %></span>
         <p>by  <%= comment.user.name %> on <%= comment.created_at %></p>
         <%if session[:user_id] == comment.user_id%>
-          <p><a href="/comments/<%=comment.id%>/edit">Edit</a> | <form action="/comments/<%= @comment.id %>/delete" method="POST">
-    <button class="waves-effect waves-light btn">Delete</button>
-  </form></p>
+          <p><a href="/comments/<%=comment.id%>/edit">Edit</a></p>
         <%end%>
       </div>
     </div>
