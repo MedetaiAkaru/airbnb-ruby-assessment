@@ -4,7 +4,11 @@ class CreateProperties < ActiveRecord::Migration
 			t.string :title
 			t.text :description
 			t.integer :price
-			t.string :image
+			# t.string :image
+			# t.string :location
+			# t.integer :accomodates
+			# t.integer :bedrooms
+			# t.integer :beds
 			t.integer :user_id
 			t.timestamps :created_at
 			t.timestamps :updated_at

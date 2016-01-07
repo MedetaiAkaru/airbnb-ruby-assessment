@@ -10,3 +10,27 @@ post '/properties/:id/comment' do
   redirect "/properties/#{params[:id]}"
 end
 
+#DONE Show comment
+get '/comments/:id' do
+  @comment = Comment.find(params[:id])
+  erb :"/comments/show"
+end
+
+#DONE update comment
+get '/comments/:id/edit' do
+  @comment = Comment.find(params[:id])
+  if session[:user_id] == @comment.user_id
+    erb :"/comments/edit"
+  else
+    erb :"/nopermission"
+  end
+end
+
+#DONE edit comment (db)
+post '/comments/:id/edit' do
+	comment = Comment.find(params[:id])
+  comment.update(commenttext: params[:commenttext])
+  redirect "/comments/#{comment.id}"
+end
+
+#NOT DONE delete comment
