@@ -1,3 +1,4 @@
+#DONE login authentication process
 post '/login' do
  if (user = User.authenticate(params[:user][:email], params[:user][:password]))
     session[:user_id] ||= user.id
@@ -8,6 +9,7 @@ post '/login' do
   end
 end
 
+#DONE logout
 post '/logout' do
   session[:user_id] = nil
   session[:email] = nil
