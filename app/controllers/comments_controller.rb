@@ -33,4 +33,8 @@ post '/comments/:id/edit' do
   redirect "/comments/#{comment.id}"
 end
 
-#NOT DONE delete comment
+#DONE delete comment
+post '/comments/:id/delete' do
+  Comment.delete(params[:id])
+  redirect "/"
+end

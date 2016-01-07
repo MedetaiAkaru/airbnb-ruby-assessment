@@ -38,8 +38,8 @@ post '/properties/:id/edit' do
   redirect "/properties/#{property.id}"
 end
 
-#NOT DONE delete property
+#DONE delete property
 post '/properties/:id/delete' do
   Property.delete(params[:id])
-  erb :'room/index'
+  redirect "/"
 end
