@@ -1,0 +1,14 @@
+<p class="flow-text"><h1><%= @property.title %></h1></p>
+<div class="row"><img src="<%= @property.image %>"</div>
+Property By: <a href="/users/<%= @property.user.id %>">  <%= @property.user.name %></a> 
+<% if current_user.id == @property.user.id %>
+	<a href="/properties/<%= @property.id %>/edit">Edit</a>
+<% end %>
+<br>
+<div class="row">
+<p class="flow-text"><%= @property.description.gsub("\n","<br>") %></p>
+</div>
+<div class="row">
+<p class="flow-text">Price per night: RM<%= @property.price %></p>
+</div>
+<a href="/properties">Back to Index</a>
