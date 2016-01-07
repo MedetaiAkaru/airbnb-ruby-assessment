@@ -1,24 +1,24 @@
 <div class="row"></div>
 	<% @property.each do |eachproperty| %>
 	<div class="row">
-		<div class="col s2">
-      <img src="<%= eachproperty.image %>" class="smalllisting">
-		</div>
-		<div class="col s10">
-			<div class="card">
-        <div class="card-content">
-          <span class="card-title"><a href=/properties/<%= eachproperty.id%> ><%= eachproperty.title %></a></span>
-          <p>Price: <%= eachproperty.price %></p>
-          <p><%= eachproperty.description %></p>
-        </div>
-        <div class="card-action">
-          
-			<% if current_user.id != eachproperty.user.id %>!! THIS IS WHERE THE BOOKING BUTTON WILL BE !!<% end %>
-        </div>
+    <div class="card">
+      <div class="card-image">
+        <a href="/properties/<%= eachproperty.id %>"><img src="<%= eachproperty.image %>">
+        <span class="card-title"><%= eachproperty.title %></span></a>
       </div>
-		</div>
-	</div>
+      <div class="card-content">
+        <span class="card-title"><p>Price: <%= eachproperty.price %></p>
+        <p><%= eachproperty.description %></p></span>
+      </div>
+      <div class="card-action">
+        <% if current_user.id != eachproperty.user.id %> 
+          <a class="waves-effect waves-light btn" href="/properties/<%= eachproperty.id %>/book"><i class="material-icons left">sms</i>Book</a>
+        <% end %>
+      </div>
+    </div>
+  </div>
 <% end %>
+</div>
 
 
 <% if logged_in? %>

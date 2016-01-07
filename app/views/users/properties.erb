@@ -1,0 +1,19 @@
+
+  <h3>Properties Posted by <%= @user.name %></h3>
+<a href="/users/<%= @user.id %>">Back to Profile</a>
+	<% @user.properties.each do |eachproperty| %>
+		<div class="row">
+      <div class="col s12 m7">
+        <div class="card">
+          <div class="card-image">
+            <a href="/properties/<%= eachproperty.id %>"><img src="<%= eachproperty.image %>">
+            <span class="card-title"><%= eachproperty.title %></span></a>
+          </div>
+          <div class="card-content">
+		        <span class="card-title">on <%= eachproperty.created_at %></span>
+		   
+					</div>
+				</div>
+      </div>
+    </div>
+	<% end %>
