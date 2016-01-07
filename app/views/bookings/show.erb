@@ -25,5 +25,5 @@
 
 <% if current_user.id == @booking.user.id %>
   <a class="waves-effect waves-light btn" href="/bookings/<%= @booking.id %>/edit">Edit</a>
-  
+  <a class="waves-effect waves-light btn" href="/users/<%= @booking.user.id %>/bookings">Back to all bookings</a>
 <% end %>

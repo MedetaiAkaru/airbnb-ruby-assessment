@@ -20,7 +20,7 @@ By: <a href="/users/<%= @booking.property.user.id %>">  <%= @booking.property.us
     <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">comment</i>
-		      <textarea id="textarea1" name="commenttext" placeholder="Comment" class="materialize-textarea"></textarea>
+		      <textarea id="textarea1" name="commenttext" placeholder="Comment" class="materialize-textarea"><%=@booking.extra%></textarea>
           <label for="textarea1">Do you have anything extra to mention?</label>
         </div>
       </div>

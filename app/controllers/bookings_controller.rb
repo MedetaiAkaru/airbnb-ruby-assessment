@@ -6,8 +6,8 @@ end
 
 #DONE make a booking (db)
 post '/properties/:id/book' do
-  booking = Booking.create(date_start: params[:datestart], date_end: params[:dateend], user_id: session[:user_id], property_id: params[:id])
-  redirect "/properties/#{params[:id]}"
+  booking = Booking.create(date_start: params[:datestart], date_end: params[:dateend], extra: params[:extra], user_id: session[:user_id], property_id: params[:id])
+  redirect "/bookings/#{booking.id}"
 end
 
 #DONE Show booking
@@ -34,7 +34,7 @@ end
 #DONE edit booking (db)
 post '/bookings/:id/edit' do
 	booking = Booking.find(params[:id])
-  booking.update(date_start: params[:datestart], date_end: params[:dateend])
+  booking.update(date_start: params[:datestart], date_end: params[:dateend], extra: params[:extra])
   redirect "/bookings/#{booking.id}"
 end
 

@@ -12,19 +12,17 @@ By: <a href="/users/<%= @property.user.id %>">  <%= @property.user.name %></a>
     <div class="row">
       <div class="input-field col s6">
         <i class="material-icons prefix">date_range</i>
-        <input type="datestart" class="datepicker" name="datestart">          
-        <label for="datestart">From:</label>
+        <input type="datestart" class="datepicker" name="datestart">    
       </div>
       <div class="input-field col s6">
         <i class="material-icons prefix">date_range</i>
-        <input type="dateend" class="datepicker" name="dateend">          
-        <label for="dateend">Until:</label>
+        <input type="dateend" class="datepicker" name="dateend">        
       </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">comment</i>
-		      <textarea id="textarea1" name="commenttext" placeholder="Comment" class="materialize-textarea"></textarea>
+		      <textarea id="textarea1" name="extra" placeholder="Comment" class="materialize-textarea"></textarea>
           <label for="textarea1">Do you have anything extra to mention?</label>
         </div>
       </div>
