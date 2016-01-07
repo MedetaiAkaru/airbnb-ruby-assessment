@@ -10,8 +10,36 @@ post '/properties/:id/book' do
   redirect "/properties/#{params[:id]}"
 end
 
-#NOT DONE edit a booking
+#DONE Show booking
+get '/bookings/:id' do
+	  @booking = Booking.find(params[:id])
+  if session[:user_id] == @booking.user_id
+	  erb :"/bookings/show"
+  else
+    erb :"/nopermission"
+  end
+end
 
 
-#NOT DONE delete a booking
+#DONE update booking
+get '/bookings/:id/edit' do
+  @booking = Booking.find(params[:id])
+  if session[:user_id] == @booking.user_id
+    erb :"/bookings/edit"
+  else
+    erb :"/nopermission"
+  end
+end
 
+#DONE edit booking (db)
+post '/bookings/:id/edit' do
+	booking = Booking.find(params[:id])
+  booking.update(date_start: params[:datestart], date_end: params[:dateend])
+  redirect "/bookings/#{booking.id}"
+end
+
+#DONE delete booking
+post '/bookings/:id/delete' do
+  Booking.delete(params[:id])
+  redirect "/"
+end

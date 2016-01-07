@@ -10,6 +10,7 @@
               <th data-field="dateend">End</th>
               <th data-field="nights">Nights</th>
               <th data-field="totalprice">Total Price</th>
+              <th data-field="Edit">Edit</th>
           </tr>
         </thead>
 
@@ -21,7 +22,8 @@
 	            <td><%=eachbooking.date_start%></td>
 	            <td><%=eachbooking.date_end%></td>
 	            <td><%=((Date.parse(eachbooking.date_end)-Date.parse(eachbooking.date_start)).to_i)-1%></td>	  
-	            <td>RM<%=(((Date.parse(eachbooking.date_end)-Date.parse(eachbooking.date_start)).to_i)-1)*(eachbooking.property.price.to_i)%></td>	            
+	            <td>RM<%=(((Date.parse(eachbooking.date_end)-Date.parse(eachbooking.date_start)).to_i)-1)*(eachbooking.property.price.to_i)%></td>
+              <td><a href="/bookings/<%=eachbooking.id%>/edit">Edit</td>	            
 	          </tr>	
 					<% end %>
         </tbody>

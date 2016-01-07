@@ -16,7 +16,7 @@ get '/comments/:id' do
   erb :"/comments/show"
 end
 
-#DONE update comment
+#DONE edit update comment
 get '/comments/:id/edit' do
   @comment = Comment.find(params[:id])
   if session[:user_id] == @comment.user_id

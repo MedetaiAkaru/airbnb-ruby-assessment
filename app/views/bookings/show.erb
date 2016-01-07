@@ -1,0 +1,29 @@
+	<table class="highlight">
+        <thead>
+          <tr>
+              <th data-field="title">Title</th>
+              <th data-field="price">Price/Night</th>
+              <th data-field="datestart">Start</th>
+              <th data-field="dateend">End</th>
+              <th data-field="nights">Nights</th>
+              <th data-field="totalprice">Total Price</th>
+          </tr>
+        </thead>
+
+        <tbody>
+	          <tr>
+	            <td><a href="/posts/<%= @booking.property.id %>"><%=@booking.property.title%></a></td>
+	            <td>RM<%=@booking.property.price%></td>
+	            <td><%=@booking.date_start%></td>
+	            <td><%=@booking.date_end%></td>
+	            <td><%=((Date.parse(@booking.date_end)-Date.parse(@booking.date_start)).to_i)-1%></td>	  
+	            <td>RM<%=(((Date.parse(@booking.date_end)-Date.parse(@booking.date_start)).to_i)-1)*(@booking.property.price.to_i)%></td>	            
+	          </tr>	
+        </tbody>
+      </table>
+
+
+<% if current_user.id == @booking.user.id %>
+  <a class="waves-effect waves-light btn" href="/bookings/<%= @booking.id %>/edit">Edit</a>
+  
+<% end %>
