@@ -15,31 +15,31 @@ get '/users/:id' do
   erb :"/users/profile"
 end
 
-#NOT DONE user properties page
+#DONE user properties page
 get '/users/:id/properties' do
   @user = User.find(params[:id])
   erb :"/users/properties"
 end
 
-#NOT DONE user bookings
+#DONE user bookings
 get '/users/:id/bookings' do
   @user = User.find(params[:id])
-  erb :"/users/booking"
+  erb :"/users/bookings"
 end
 
-#NOT DONE user comments
+#DONE user comments
 get '/users/:id/comments' do
   @user = User.find(params[:id])
   erb :"/users/comments"
 end
 
-#NOT DONE edit user profile
+#DONE edit user profile
 get '/users/:id/edit' do
   @user = User.find(params[:id])
   erb :"/users/edit"
 end
 
-#NOT DONE edit user profile (db)
+#DONE edit user profile (db)
 post '/users/:id/edit' do
 	user = User.find(params[:id])
   user.update(name: params[:name], email: params[:email])

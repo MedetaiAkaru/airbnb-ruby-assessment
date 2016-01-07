@@ -1,0 +1,28 @@
+<h3>Bookings Made</h3>
+<a href="/users/<%= @user.id %>">Back to Profile</a>
+
+	<table class="highlight">
+        <thead>
+          <tr>
+              <th data-field="title">Title</th>
+              <th data-field="price">Price/Night</th>
+              <th data-field="datestart">Start</th>
+              <th data-field="dateend">End</th>
+              <th data-field="nights">Nights</th>
+              <th data-field="totalprice">Total Price</th>
+          </tr>
+        </thead>
+
+        <tbody>
+					<% @user.bookings.each do |eachbooking| %>
+	          <tr>
+	            <td><a href="/posts/<%= eachbooking.property.id %>"><%=eachbooking.property.title%></a></td>
+	            <td>RM<%=eachbooking.property.price%></td>
+	            <td><%=eachbooking.date_start%></td>
+	            <td><%=eachbooking.date_end%></td>
+	            <td><%=((Date.parse(eachbooking.date_end)-Date.parse(eachbooking.date_start)).to_i)-1%></td>	  
+	            <td>RM<%=(((Date.parse(eachbooking.date_end)-Date.parse(eachbooking.date_start)).to_i)-1)*(eachbooking.property.price.to_i)%></td>	            
+	          </tr>	
+					<% end %>
+        </tbody>
+      </table>
