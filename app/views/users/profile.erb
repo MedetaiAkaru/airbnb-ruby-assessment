@@ -1,0 +1,12 @@
+<h1><%= @user.name %></h1>
+
+Email: <%= @user.email %> <br>
+<% if logged_in? %>
+	<% if current_user.id == @user.id %>
+		<a class="waves-effect waves-light btn" href="/users/<%= @user.id %>/edit">Edit profile</a>
+		<a class="waves-effect waves-light btn" href="/users/<%= @user.id %>/bookings">See Bookings</a>
+	<% end  %>
+<% end %>
+
+<a class="waves-effect waves-light btn" href="/users/<%= @user.id %>/comments">See Comments</a>
+<a class="waves-effect waves-light btn" href="/users/<%= @user.id %>/properties">See Properties</a>

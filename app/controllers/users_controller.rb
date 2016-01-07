@@ -9,7 +9,7 @@ post '/users/new' do
   end
 end  
 
-#NOT DONE user profile page
+#DONE user profile page
 get '/users/:id' do
   @user = User.find(params[:id])
   erb :"/users/profile"
@@ -25,6 +25,12 @@ end
 get '/users/:id/bookings' do
   @user = User.find(params[:id])
   erb :"/users/booking"
+end
+
+#NOT DONE user comments
+get '/users/:id/comments' do
+  @user = User.find(params[:id])
+  erb :"/users/comments"
 end
 
 #NOT DONE edit user profile
